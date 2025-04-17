@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Theme colors */
@@ -10,4 +10,11 @@
   --color-text-dark: #2c254b;
   --color-text-light: #6b6681;
   --color-text-lightest: #6b668180;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
