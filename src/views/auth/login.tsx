@@ -24,6 +24,7 @@ const LoginView = () => {
       console.log('🚀 ~ LoginView ~ value:', value);
       Cookies.set('token', 'abc123');
       navigate('/');
+      window.location.reload();
     },
   });
 

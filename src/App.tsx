@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router';
 import AuthLayout from './components/layouts/auth-layout';
 
 // Views
+import { NotFoundRedirect, ProtectedRoute, PublicRoute } from './middleware';
 import ChangePassword from './views/auth/change-password';
 import ForgotPassword from './views/auth/forgot-password';
 import LoginView from './views/auth/login';
@@ -14,29 +15,40 @@ function App() {
   return (
     <Routes>
       {/* Auth */}
-      <Route element={<AuthLayout />}>
+      <Route element={<PublicRoute />}>
+        <Route element={<AuthLayout />}>
+          <Route
+            path='login'
+            element={<LoginView />}
+          />
+          <Route
+            path='forgot-password'
+            element={<ForgotPassword />}
+          />
+          <Route
+            path='verify-email'
+            element={<VerifyEmail />}
+          />
+          <Route
+            path='change-password'
+            element={<ChangePassword />}
+          />
+        </Route>
+      </Route>
+
+      {/* Protected Routes */}
+      <Route element={<ProtectedRoute />}>
+        {/* Dashboard */}
         <Route
-          path='login'
-          element={<LoginView />}
-        />
-        <Route
-          path='forgot-password'
-          element={<ForgotPassword />}
-        />
-        <Route
-          path='verify-email'
-          element={<VerifyEmail />}
-        />
-        <Route
-          path='change-password'
-          element={<ChangePassword />}
+          path='/'
+          element={<div>Hello World</div>}
         />
       </Route>
 
-      {/* Dashboard */}
+      {/* Not Found */}
       <Route
-        path='/'
-        element={<div>Hello World</div>}
+        path='*'
+        element={<NotFoundRedirect />}
       />
     </Routes>
   );
