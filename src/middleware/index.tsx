@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router';
 
 const token = Cookies.get('token');
 
-const dashboard = '/';
+const dashboard = '/dashboard';
 const login = '/login';
 
 export const NotFoundRedirect = () => (

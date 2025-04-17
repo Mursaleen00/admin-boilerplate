@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router';
 import AuthLayout from './components/layouts/auth-layout';
 
 // Views
+import SidebarLayout from './components/layouts/dashboard-layout';
 import { NotFoundRedirect, ProtectedRoute, PublicRoute } from './middleware';
 import ChangePassword from './views/auth/change-password';
 import ForgotPassword from './views/auth/forgot-password';
@@ -38,11 +39,12 @@ function App() {
 
       {/* Protected Routes */}
       <Route element={<ProtectedRoute />}>
-        {/* Dashboard */}
-        <Route
-          path='/'
-          element={<div>Hello World</div>}
-        />
+        <Route element={<SidebarLayout />}>
+          <Route
+            path='dashboard'
+            element={<div>Hello World</div>}
+          />
+        </Route>
       </Route>
 
       {/* Not Found */}
