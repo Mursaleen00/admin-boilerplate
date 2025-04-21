@@ -1,7 +1,9 @@
-const handleIsActive = (name: string) => {
-  const path = window.location.pathname;
+import { useLocation } from 'react-router';
+
+const useHandleIsActive = (name: string) => {
+  const pathname = useLocation().pathname;
   const updatedName = name.replace(/\s/g, '').toLocaleLowerCase();
-  const updatedPath = path
+  const updatedPath = pathname
     ?.split('/')
     ?.slice(1)[0]
     ?.replace(/-/g, '')
@@ -10,4 +12,4 @@ const handleIsActive = (name: string) => {
   return updatedName.includes(updatedPath);
 };
 
-export default handleIsActive;
+export default useHandleIsActive;

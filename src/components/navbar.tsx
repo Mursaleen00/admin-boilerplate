@@ -1,4 +1,5 @@
 import { FaBars } from 'react-icons/fa';
+import { useLocation } from 'react-router';
 
 interface NavbarProps {
   isOpen: boolean;
@@ -6,8 +7,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
-  const pathname = window.location.pathname;
-  const Heading = pathname.split('/')[1];
+  const pathname = useLocation().pathname;
+  const Heading = pathname.split('/')[1]?.replace(/-/g, ' ');
 
   return (
     <div className='top-0 z-20 flex w-full items-center justify-between border-b border-b-gray-300 bg-white px-6 py-4'>

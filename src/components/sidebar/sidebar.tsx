@@ -16,8 +16,8 @@ import Cookies from 'js-cookie';
 // React Router
 import { Link, useNavigate } from 'react-router';
 
-// Utils
-import handleIsActive from '@/utils/get-is-active';
+// Hooks
+import handleIsActive from '@/hooks/get-is-active';
 
 interface TabProps {
   isOpen: boolean;
