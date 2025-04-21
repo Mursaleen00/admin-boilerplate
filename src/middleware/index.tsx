@@ -9,11 +9,14 @@ import routes from '@/constants/routes';
 
 const token = Cookies.get('token');
 
-const { auth, page } = routes;
+const {
+  auth: { login },
+  page: { dashboard },
+} = routes;
 
 export const NotFoundRedirect = () => (
   <Navigate
-    to={token ? page.dashboard : auth.login}
+    to={token ? dashboard : login}
     replace
   />
 );
@@ -21,7 +24,7 @@ export const NotFoundRedirect = () => (
 export const ProtectedRoute = () => {
   return !token ? (
     <Navigate
-      to={auth.login}
+      to={login}
       replace
     />
   ) : (
@@ -32,7 +35,7 @@ export const ProtectedRoute = () => {
 export const PublicRoute = () => {
   return token ? (
     <Navigate
-      to={page.dashboard}
+      to={dashboard}
       replace
     />
   ) : (

@@ -18,25 +18,30 @@ import LoginView from '@/views/auth/login';
 import VerifyEmail from '@/views/auth/verify-email';
 
 function App() {
+  const {
+    auth: { changePassword, forgotPassword, login, verifyEmail },
+    page: { allStandUps, checkIn, dashboard, projects, report },
+  } = routes;
+
   return (
     <Routes>
       {/* Auth */}
       <Route element={<PublicRoute />}>
         <Route element={<AuthLayout />}>
           <Route
-            path={routes.auth.login}
+            path={login}
             element={<LoginView />}
           />
           <Route
-            path={routes.auth.forgotPassword}
+            path={forgotPassword}
             element={<ForgotPassword />}
           />
           <Route
-            path={routes.auth.verifyEmail}
+            path={verifyEmail}
             element={<VerifyEmail />}
           />
           <Route
-            path={routes.auth.changePassword}
+            path={changePassword}
             element={<ChangePassword />}
           />
         </Route>
@@ -46,23 +51,23 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<SidebarLayout />}>
           <Route
-            path={routes.page.dashboard}
+            path={dashboard}
             element={<div>Hello World</div>}
           />
           <Route
-            path={routes.page.checkIn}
+            path={checkIn}
             element={<div>This is Check in page</div>}
           />
           <Route
-            path={routes.page.projects}
+            path={projects}
             element={<div>This is project page</div>}
           />
           <Route
-            path={routes.page.allStandUps}
+            path={allStandUps}
             element={<div>This is allStandUps page</div>}
           />
           <Route
-            path={routes.page.report}
+            path={report}
             element={<div>This is report page</div>}
           />
         </Route>

@@ -13,35 +13,39 @@ import ProjectColoredIcon from '@/../public/icons/project-icon-colored.svg';
 // ============== Routes ==============
 import routes from './routes';
 
+const {
+  page: { allStandUps, checkIn, dashboard, projects, report },
+} = routes;
+
 // ============== Nav Items ==============
 const sidebarTabs = [
   {
     name: 'Dashboard',
-    link: routes.page.dashboard,
+    link: dashboard,
     icon: CalenderIcon,
     coloredIcon: CalenderColoredIcon,
   },
   {
     name: 'Stand Ups',
-    link: routes.page.allStandUps,
+    link: allStandUps,
     icon: StandupIcon,
     coloredIcon: StandupColoredIcon,
   },
   {
     name: 'Check In',
-    link: routes.page.checkIn,
+    link: checkIn,
     icon: DashboardIcon,
     coloredIcon: DashboardColoredIcon,
   },
   {
     name: 'Projects',
-    link: routes.page.projects,
+    link: projects,
     icon: ProjectIcon,
     coloredIcon: ProjectColoredIcon,
   },
   {
     name: 'Report',
-    link: routes.page.report,
+    link: report,
     icon: StandupIcon,
     coloredIcon: StandupColoredIcon,
   },
