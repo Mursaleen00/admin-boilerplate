@@ -10,10 +10,11 @@ import DashboardColoredIcon from './../../public/icons/dashboard-colored.svg';
 import StandupColoredIcon from './../../public/icons/document-colored.svg';
 import ProjectColoredIcon from './../../public/icons/project-icon-colored.svg';
 
+// ============== Routes ==============
 import routes from './routes';
 
-// ============== Lead Nav Items ==============
-export const sidebarTabs = [
+// ============== Nav Items ==============
+const sidebarTabs = [
   {
     name: 'Dashboard',
     link: routes.page.leaves,
@@ -45,3 +46,5 @@ export const sidebarTabs = [
     coloredIcon: StandupColoredIcon,
   },
 ];
+
+export default sidebarTabs;

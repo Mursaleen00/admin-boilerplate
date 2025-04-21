@@ -3,9 +3,21 @@
 // Component
 import Tab from './tab';
 
+// Constants
+import routes from '../../constants/routes';
+import sidebarTabs from '../../constants/sidebar';
+
+// React
 import { Dispatch, SetStateAction } from 'react';
-import { Link } from 'react-router';
-import { sidebarTabs } from '../../constants/sidebar';
+
+// Cookie
+import Cookies from 'js-cookie';
+
+// React Router
+import { Link, useNavigate } from 'react-router';
+
+// Utils
+import handleIsActive from '../../utils/get-is-active';
 
 interface TabProps {
   isOpen: boolean;
@@ -13,24 +25,19 @@ interface TabProps {
 }
 
 const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
-  const path = window.location.pathname;
+  const navigate = useNavigate();
 
-  const handleIsActive = (name: string) => {
-    const updatedName = name.replace(/\s/g, '').toLocaleLowerCase();
-    const updatedPath = path
-      ?.split('/')
-      ?.slice(1)[0]
-      ?.replace(/-/g, '')
-      ?.toLocaleLowerCase();
-
-    return updatedName.includes(updatedPath);
+  const handleLogout = () => {
+    Cookies.remove('token');
+    navigate(routes.auth.login);
+    window.location.reload();
   };
 
   return (
     <div
-      className={`${isOpen ? 'absolute top-0 left-0 z-[999] lg:relative' : 'hidden'} bg-primary h-full w-64 min-w-xs flex-col space-y-6 px-6 py-5 lg:flex`}
+      className={`${isOpen ? 'absolute top-0 left-0 z-[999] lg:relative' : 'hidden'} bg-primary h-full w-64 min-w-xs flex-col px-6 py-5 lg:flex`}
     >
-      <Link to={'/'}>
+      <Link to={routes.page.dashboard}>
         <img
           alt='logo'
           src={'/logo-colored.svg'}
@@ -38,7 +45,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
       </Link>
 
       <button
-        className={`flex w-full flex-col gap-y-4`}
+        className={`mt-6 flex w-full flex-col gap-y-4`}
         onClick={() => setIsOPen(false)}
       >
         {sidebarTabs?.map((item, index) => {
@@ -51,6 +58,16 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
             />
           );
         })}
+      </button>
+      <button
+        className='absolute bottom-6'
+        onClick={handleLogout}
+      >
+        <Tab
+          icon='/icons/logout.svg'
+          name='Logout'
+          link={routes.auth.login}
+        />
       </button>
     </div>
   );

@@ -11,6 +11,9 @@ import Input from '../../components/inputs/input';
 // Schema
 import changePasswordSchema from '../../schemas/change-password.schema';
 
+// Constants
+import routes from '../../constants/routes';
+
 const ChangePassword = () => {
   const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ const ChangePassword = () => {
     validationSchema: changePasswordSchema,
     onSubmit: value => {
       console.log('🚀 ~ ChangePassword ~ value:', value);
-      navigate('/login');
+      navigate(routes.auth.login);
     },
   });
 

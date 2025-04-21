@@ -14,8 +14,13 @@ import loginSchema from '../../schemas/login.schema';
 // Cookie
 import Cookies from 'js-cookie';
 
+// Constants
+import routes from '../../constants/routes';
+
 const LoginView = () => {
   const navigate = useNavigate();
+
+  const { auth, page } = routes;
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -23,7 +28,7 @@ const LoginView = () => {
     onSubmit: value => {
       console.log('🚀 ~ LoginView ~ value:', value);
       Cookies.set('token', 'abc123');
-      navigate('/');
+      navigate(page.dashboard);
       window.location.reload();
     },
   });
@@ -65,7 +70,7 @@ const LoginView = () => {
       <p className='text-text-dark text-end font-medium'>
         Forgot Your{' '}
         <Link
-          to={'/forgot-password'}
+          to={auth.forgotPassword}
           className='text-primary underline'
         >
           Password

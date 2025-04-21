@@ -7,6 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router';
 // Components
 import Button from '../../components/button/button';
 import OtpInput from '../../components/inputs/otp-input';
+import routes from '../../constants/routes';
 
 const VerificationView = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +19,7 @@ const VerificationView = () => {
     initialValues: { otp: '' },
     onSubmit: async values => {
       console.log({ values, email });
-      navigate('/change-password');
+      navigate(routes.auth.changePassword);
     },
   });
 

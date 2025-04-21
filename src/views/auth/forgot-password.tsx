@@ -11,6 +11,9 @@ import Input from '../../components/inputs/input';
 // Schema
 import ForgotPasswordSchema from '../../schemas/forgot-password.schema';
 
+// Constants
+import routes from '../../constants/routes';
+
 const ForgotPassword = () => {
   const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ const ForgotPassword = () => {
     validationSchema: ForgotPasswordSchema,
     onSubmit: value => {
       console.log('🚀 ~ ForgotPassword ~ param:', { value });
-      navigate('/verify-email?email=' + value.email);
+      navigate(`${routes.auth.verifyEmail}?email=${value.email}`);
     },
   });
 
