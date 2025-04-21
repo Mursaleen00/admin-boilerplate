@@ -7,7 +7,6 @@ const routes = {
   },
   page: {
     dashboard: '/dashboard',
-    leaves: '/leaves',
     allStandUps: '/stand-ups',
     checkIn: '/check-in',
     projects: '/projects',

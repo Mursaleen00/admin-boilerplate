@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import { Navigate, Outlet } from 'react-router';
 
 // Constants
-import routes from '../constants/routes';
+import routes from '@/constants/routes';
 
 const token = Cookies.get('token');
 

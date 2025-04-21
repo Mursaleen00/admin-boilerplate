@@ -5,14 +5,14 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router';
 
 // Components
-import Button from '../../components/button/button';
-import Input from '../../components/inputs/input';
+import Button from '@/components/button/button';
+import Input from '@/components/inputs/input';
 
 // Schema
-import changePasswordSchema from '../../schemas/change-password.schema';
+import changePasswordSchema from '@/schemas/change-password.schema';
 
 // Constants
-import routes from '../../constants/routes';
+import routes from '@/constants/routes';
 
 const ChangePassword = () => {
   const navigate = useNavigate();

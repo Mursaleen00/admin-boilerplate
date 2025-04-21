@@ -5,9 +5,11 @@ import { useFormik } from 'formik';
 import { useNavigate, useSearchParams } from 'react-router';
 
 // Components
-import Button from '../../components/button/button';
-import OtpInput from '../../components/inputs/otp-input';
-import routes from '../../constants/routes';
+import Button from '@/components/button/button';
+import OtpInput from '@/components/inputs/otp-input';
+
+// Constants
+import routes from '@/constants/routes';
 
 const VerificationView = () => {
   const [searchParams] = useSearchParams();

@@ -5,17 +5,17 @@ import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router';
 
 // Components
-import Button from '../../components/button/button';
-import Input from '../../components/inputs/input';
+import Button from '@/components/button/button';
+import Input from '@/components/inputs/input';
 
 // Schema
-import loginSchema from '../../schemas/login.schema';
+import loginSchema from '@/schemas/login.schema';
 
 // Cookie
 import Cookies from 'js-cookie';
 
 // Constants
-import routes from '../../constants/routes';
+import routes from '@/constants/routes';
 
 const LoginView = () => {
   const navigate = useNavigate();

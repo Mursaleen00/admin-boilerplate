@@ -8,7 +8,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Providers
-import Providers from './providers/index.tsx';
+import Providers from '@/providers/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <Providers>

@@ -4,8 +4,8 @@
 import Tab from './tab';
 
 // Constants
-import routes from '../../constants/routes';
-import sidebarTabs from '../../constants/sidebar';
+import routes from '@/constants/routes';
+import sidebarTabs from '@/constants/sidebar';
 
 // React
 import { Dispatch, SetStateAction } from 'react';
@@ -17,7 +17,7 @@ import Cookies from 'js-cookie';
 import { Link, useNavigate } from 'react-router';
 
 // Utils
-import handleIsActive from '../../utils/get-is-active';
+import handleIsActive from '@/utils/get-is-active';
 
 interface TabProps {
   isOpen: boolean;
@@ -59,6 +59,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
           );
         })}
       </button>
+
       <button
         className='absolute bottom-6'
         onClick={handleLogout}

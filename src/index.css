@@ -2,14 +2,12 @@
 
 @theme {
   /* Theme colors */
-  /* --color-primary: #0fa6a2; */
   --color-primary: #2c254b;
   --color-primary-light: #0fa6a299;
   --color-primary-lightest: #0fa6a214;
 
   /* Text colors */
   --color-text-dark: #0fa6a2;
-  /* --color-text-dark: #2c254b; */
   --color-text-light: #6b6681;
   --color-text-lightest: #6b668180;
 }

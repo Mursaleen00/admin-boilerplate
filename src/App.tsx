@@ -2,15 +2,20 @@
 import { Route, Routes } from 'react-router';
 
 // Layouts
-import AuthLayout from './components/layouts/auth-layout';
+import AuthLayout from '@/components/layouts/auth-layout';
+import SidebarLayout from '@/components/layouts/dashboard-layout';
+
+// Middlewares
+import { NotFoundRedirect, ProtectedRoute, PublicRoute } from '@/middleware';
+
+// Constants
+import routes from '@/constants/routes';
 
 // Views
-import SidebarLayout from './components/layouts/dashboard-layout';
-import { NotFoundRedirect, ProtectedRoute, PublicRoute } from './middleware';
-import ChangePassword from './views/auth/change-password';
-import ForgotPassword from './views/auth/forgot-password';
-import LoginView from './views/auth/login';
-import VerifyEmail from './views/auth/verify-email';
+import ChangePassword from '@/views/auth/change-password';
+import ForgotPassword from '@/views/auth/forgot-password';
+import LoginView from '@/views/auth/login';
+import VerifyEmail from '@/views/auth/verify-email';
 
 function App() {
   return (
@@ -19,19 +24,19 @@ function App() {
       <Route element={<PublicRoute />}>
         <Route element={<AuthLayout />}>
           <Route
-            path='login'
+            path={routes.auth.login}
             element={<LoginView />}
           />
           <Route
-            path='forgot-password'
+            path={routes.auth.forgotPassword}
             element={<ForgotPassword />}
           />
           <Route
-            path='verify-email'
+            path={routes.auth.verifyEmail}
             element={<VerifyEmail />}
           />
           <Route
-            path='change-password'
+            path={routes.auth.changePassword}
             element={<ChangePassword />}
           />
         </Route>
@@ -41,8 +46,24 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<SidebarLayout />}>
           <Route
-            path='dashboard'
+            path={routes.page.dashboard}
             element={<div>Hello World</div>}
+          />
+          <Route
+            path={routes.page.checkIn}
+            element={<div>This is Check in page</div>}
+          />
+          <Route
+            path={routes.page.projects}
+            element={<div>This is project page</div>}
+          />
+          <Route
+            path={routes.page.allStandUps}
+            element={<div>This is allStandUps page</div>}
+          />
+          <Route
+            path={routes.page.report}
+            element={<div>This is report page</div>}
           />
         </Route>
       </Route>
