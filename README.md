@@ -1,3 +1,3 @@
 # React + TypeScript + Vite
 
-## This project is under construction.
+This project is under construction.
