@@ -22,8 +22,8 @@ const sidebarTabs = [
   {
     name: 'Dashboard',
     link: dashboard,
-    icon: CalenderIcon,
-    coloredIcon: CalenderColoredIcon,
+    icon: DashboardIcon,
+    coloredIcon: DashboardColoredIcon,
   },
   {
     name: 'Stand Ups',
@@ -34,8 +34,8 @@ const sidebarTabs = [
   {
     name: 'Check In',
     link: checkIn,
-    icon: DashboardIcon,
-    coloredIcon: DashboardColoredIcon,
+    icon: CalenderIcon,
+    coloredIcon: CalenderColoredIcon,
   },
   {
     name: 'Projects',
