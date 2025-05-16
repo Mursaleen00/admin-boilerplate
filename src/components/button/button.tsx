@@ -25,9 +25,8 @@ const Button = ({
     >
       {isPending ? (
         <TbLoaderQuarter
-          color='#21AB70'
           size={20}
-          className={`animate-spin ${className}`}
+          className={`text-text-dark animate-spin ${className}`}
         />
       ) : text ? (
         text

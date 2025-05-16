@@ -1,20 +1,20 @@
 // ============== Icons ==============
-import CalenderIcon from '@/../public/icons/calendar.svg';
-import DashboardIcon from '@/../public/icons/dashboard.svg';
-import StandupIcon from '@/../public/icons/document.svg';
-import ProjectIcon from '@/../public/icons/project-icon.svg';
+import DashboardIcon from '@/../public/sidebar-icons/dashboard.svg';
+import RevenueIcon from '@/../public/sidebar-icons/revenue.svg';
+import UsersIcon from '@/../public/sidebar-icons/users.svg';
+// import ProjectIcon from '@/../public/sidebar-icons/project-icon.svg';
 
 // ============== Colored Icons ==============
-import CalenderColoredIcon from '@/../public/icons/calendar-colored.svg';
-import DashboardColoredIcon from '@/../public/icons/dashboard-colored.svg';
-import StandupColoredIcon from '@/../public/icons/document-colored.svg';
-import ProjectColoredIcon from '@/../public/icons/project-icon-colored.svg';
+import DashboardColoredIcon from '@/../public/sidebar-icons/dashboard-colored.svg';
+import RevenueColoredIcon from '@/../public/sidebar-icons/revenue-colored.svg';
+import UsersColoredIcon from '@/../public/sidebar-icons/users-colored.svg';
+// import ProjectColoredIcon from '@/../public/sidebar-icons/project-icon-colored.svg';
 
 // ============== Routes ==============
 import routes from './routes';
 
 const {
-  page: { allStandUps, checkIn, dashboard, projects, report },
+  page: { dashboard, users, revenue },
 } = routes;
 
 // ============== Nav Items ==============
@@ -26,29 +26,29 @@ const sidebarTabs = [
     coloredIcon: DashboardColoredIcon,
   },
   {
-    name: 'Stand Ups',
-    link: allStandUps,
-    icon: StandupIcon,
-    coloredIcon: StandupColoredIcon,
+    name: 'Users',
+    link: users,
+    icon: UsersIcon,
+    coloredIcon: UsersColoredIcon,
   },
   {
-    name: 'Check In',
-    link: checkIn,
-    icon: CalenderIcon,
-    coloredIcon: CalenderColoredIcon,
+    name: 'Revenue',
+    link: revenue,
+    icon: RevenueIcon,
+    coloredIcon: RevenueColoredIcon,
   },
-  {
-    name: 'Projects',
-    link: projects,
-    icon: ProjectIcon,
-    coloredIcon: ProjectColoredIcon,
-  },
-  {
-    name: 'Report',
-    link: report,
-    icon: StandupIcon,
-    coloredIcon: StandupColoredIcon,
-  },
+  // {
+  //   name: 'Projects',
+  //   link: projects,
+  //   icon: ProjectIcon,
+  //   coloredIcon: ProjectColoredIcon,
+  // },
+  // {
+  //   name: 'Report',
+  //   link: report,
+  //   icon: StandupIcon,
+  //   coloredIcon: StandupColoredIcon,
+  // },
 ];
 
 export default sidebarTabs;

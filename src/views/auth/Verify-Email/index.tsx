@@ -11,7 +11,7 @@ import OtpInput from '@/components/inputs/otp-input';
 // Constants
 import routes from '@/constants/routes';
 
-const VerificationView = () => {
+const VerificationEmailView = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -59,4 +59,4 @@ const VerificationView = () => {
   );
 };
 
-export default VerificationView;
+export default VerificationEmailView;

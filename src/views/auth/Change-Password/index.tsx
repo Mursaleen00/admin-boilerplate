@@ -14,7 +14,7 @@ import changePasswordSchema from '@/schemas/change-password.schema';
 // Constants
 import routes from '@/constants/routes';
 
-const ChangePassword = () => {
+const ChangePasswordView = () => {
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -70,4 +70,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default ChangePasswordView;

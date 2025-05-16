@@ -12,15 +12,18 @@ import { NotFoundRedirect, ProtectedRoute, PublicRoute } from '@/middleware';
 import routes from '@/constants/routes';
 
 // Views
-import ChangePassword from '@/views/auth/change-password';
-import ForgotPassword from '@/views/auth/forgot-password';
-import LoginView from '@/views/auth/login';
-import VerifyEmail from '@/views/auth/verify-email';
+import ChangePasswordView from '@/views/auth/Change-Password';
+import ForgotPasswordView from '@/views/auth/Forgot-Password';
+import LoginView from '@/views/auth/Login';
+import VerificationEmailView from '@/views/auth/Verify-Email';
+import DashboardView from './views/pages/Dashboard';
+import RevenueView from './views/pages/Revenue';
+import UsersView from './views/pages/Users';
 
 function App() {
   const {
     auth: { changePassword, forgotPassword, login, verifyEmail },
-    page: { allStandUps, checkIn, dashboard, projects, report },
+    page: { dashboard, users, revenue },
   } = routes;
 
   return (
@@ -34,15 +37,15 @@ function App() {
           />
           <Route
             path={forgotPassword}
-            element={<ForgotPassword />}
+            element={<ForgotPasswordView />}
           />
           <Route
             path={verifyEmail}
-            element={<VerifyEmail />}
+            element={<VerificationEmailView />}
           />
           <Route
             path={changePassword}
-            element={<ChangePassword />}
+            element={<ChangePasswordView />}
           />
         </Route>
       </Route>
@@ -52,23 +55,15 @@ function App() {
         <Route element={<SidebarLayout />}>
           <Route
             path={dashboard}
-            element={<div>Hello World</div>}
+            element={<DashboardView />}
           />
           <Route
-            path={checkIn}
-            element={<div>This is Check in page</div>}
+            path={users}
+            element={<UsersView />}
           />
           <Route
-            path={projects}
-            element={<div>This is project page</div>}
-          />
-          <Route
-            path={allStandUps}
-            element={<div>This is allStandUps page</div>}
-          />
-          <Route
-            path={report}
-            element={<div>This is report page</div>}
+            path={revenue}
+            element={<RevenueView />}
           />
         </Route>
       </Route>

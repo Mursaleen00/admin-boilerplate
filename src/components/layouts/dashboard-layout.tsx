@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import { useState } from 'react';
 
 // Components
 import Navbar from '../navbar';
@@ -9,7 +9,7 @@ import Sidebar from '../sidebar/sidebar';
 import { Outlet } from 'react-router';
 
 const SidebarLayout = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className='flex h-screen w-full overflow-hidden'>
@@ -21,8 +21,8 @@ const SidebarLayout = () => {
 
       {isOpen && (
         <button
-          className='fixed inset-0 z-30 bg-black opacity-50 lg:hidden'
           onClick={() => setIsOpen(false)}
+          className='fixed inset-0 z-30 bg-black opacity-50 lg:hidden'
         />
       )}
 

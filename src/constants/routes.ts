@@ -7,10 +7,8 @@ const routes = {
   },
   page: {
     dashboard: '/dashboard',
-    allStandUps: '/stand-ups',
-    checkIn: '/check-in',
-    projects: '/projects',
-    report: '/report',
+    users: '/users',
+    revenue: '/revenue',
   },
 };
 

@@ -18,22 +18,18 @@ const Tab = ({ icon, name, link, coloredIcon, index, isActive }: IProps) => {
   return (
     <Link
       to={link}
-      className={`flex cursor-pointer items-center gap-2 rounded-[10px] px-3 py-2 ${isActive && 'bg-text-dark/35'} ${isHovered && 'bg-text-dark/15'}`}
+      className={`flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-white ${isActive && '!text-primary !bg-white font-semibold'} ${isHovered && 'bg-white/15'}`}
       onMouseEnter={() => setHoverIndex(index ?? null)}
       onMouseLeave={() => setHoverIndex(null)}
     >
       <img
-        src={(isHovered || isActive ? coloredIcon : icon) ?? ''}
+        src={(isActive ? coloredIcon : icon) ?? ''}
         alt='icon'
         width={24}
         height={24}
       />
 
-      <p
-        className={`text-gray-50 ${(isHovered || isActive) && 'text-primary'})`}
-      >
-        {name}
-      </p>
+      <p>{name}</p>
     </Link>
   );
 };

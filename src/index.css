@@ -1,15 +1,17 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   /* Theme colors */
-  --color-primary: #2c254b;
-  --color-primary-light: #0fa6a299;
-  --color-primary-lightest: #0fa6a214;
+  --color-primary: #6154a4;
+  --color-primary-light: #6154a4a1;
+  --color-primary-lightest: #6154a43f;
 
   /* Text colors */
-  --color-text-dark: #0fa6a2;
-  --color-text-light: #6b6681;
-  --color-text-lightest: #6b668180;
+  --color-text-primary: #212636;
+  --color-text-secondary: #667085;
 }
 
 input:-webkit-autofill,

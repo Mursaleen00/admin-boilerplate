@@ -14,7 +14,7 @@ import ForgotPasswordSchema from '@/schemas/forgot-password.schema';
 // Constants
 import routes from '@/constants/routes';
 
-const ForgotPassword = () => {
+const ForgotPasswordView = () => {
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -56,4 +56,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordView;

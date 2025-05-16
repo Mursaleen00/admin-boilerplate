@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router';
 
 const useHandleIsActive = (name: string) => {
-  const pathname = useLocation().pathname;
+  const { pathname } = useLocation();
   const updatedName = name.replace(/\s/g, '').toLocaleLowerCase();
   const updatedPath = pathname
     ?.split('/')

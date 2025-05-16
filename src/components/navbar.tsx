@@ -7,12 +7,12 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
-  const pathname = useLocation().pathname;
+  const { pathname } = useLocation();
   const Heading = pathname.split('/')[1]?.replace(/-/g, ' ');
 
   return (
     <div className='top-0 z-20 flex w-full items-center justify-between border-b border-b-gray-300 bg-white px-6 py-4'>
-      <p className='text-primary text-2xl font-bold capitalize'>{Heading}</p>
+      <p className='text-primary text-3xl font-bold capitalize'>{Heading}</p>
 
       <FaBars
         onClick={() => setIsOpen(!isOpen)}
