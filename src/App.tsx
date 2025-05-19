@@ -28,7 +28,7 @@ function App() {
 
   return (
     <Routes>
-      {/* Auth */}
+      {/* ====================== Auth ====================== */}
       <Route element={<PublicRoute />}>
         <Route element={<AuthLayout />}>
           <Route
@@ -50,7 +50,7 @@ function App() {
         </Route>
       </Route>
 
-      {/* Protected Routes */}
+      {/* ====================== Pages ====================== */}
       <Route element={<ProtectedRoute />}>
         <Route element={<SidebarLayout />}>
           <Route
@@ -68,7 +68,7 @@ function App() {
         </Route>
       </Route>
 
-      {/* Not Found */}
+      {/* ====================== Not Found ====================== */}
       <Route
         path='*'
         element={<NotFoundRedirect />}
