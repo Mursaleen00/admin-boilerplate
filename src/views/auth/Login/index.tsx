@@ -20,15 +20,27 @@ import routes from '@/constants/routes';
 // Toast
 import toast from 'react-hot-toast';
 
+// Mutation
+// import { useLoginMutation } from '@/services/query-hooks/auth/login.mutation';
+
 const LoginView = () => {
   const { auth } = routes;
+
+  // const { mutateAsync, isPending } = useLoginMutation();
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
     validationSchema: loginSchema,
+    // onSubmit: async ({ email, password }) => {
+    //   const { token } = await mutateAsync({ email, password });
+    //   if (token) {
+    //     Cookies.set('token', token);
+    //     window.location.reload()
+    //   }
+    // },
     onSubmit: () => {
-      Cookies.set('token', 'abc123');
       toast.success('Login Successfully');
+      Cookies.set('token', 'lorem');
       setTimeout(() => window.location.reload(), 600);
     },
   });
@@ -81,6 +93,7 @@ const LoginView = () => {
       <Button
         type='submit'
         text='Login'
+        // isPending={isPending}
       />
     </form>
   );

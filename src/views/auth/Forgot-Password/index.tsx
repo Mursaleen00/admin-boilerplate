@@ -14,6 +14,9 @@ import ForgotPasswordSchema from '@/schemas/forgot-password.schema';
 // Constants
 import routes from '@/constants/routes';
 
+// Toast
+import toast from 'react-hot-toast';
+
 const ForgotPasswordView = () => {
   const navigate = useNavigate();
 
@@ -21,7 +24,7 @@ const ForgotPasswordView = () => {
     initialValues: { email: '' },
     validationSchema: ForgotPasswordSchema,
     onSubmit: value => {
-      console.log('🚀 ~ ForgotPassword ~ param:', { value });
+      toast.success('Email sent successfully');
       navigate(`${routes.auth.verifyEmail}?email=${value.email}`);
     },
   });

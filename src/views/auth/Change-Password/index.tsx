@@ -14,14 +14,17 @@ import changePasswordSchema from '@/schemas/change-password.schema';
 // Constants
 import routes from '@/constants/routes';
 
+// Toast
+import toast from 'react-hot-toast';
+
 const ChangePasswordView = () => {
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: { confirmPassword: '', password: '' },
     validationSchema: changePasswordSchema,
-    onSubmit: value => {
-      console.log('🚀 ~ ChangePassword ~ value:', value);
+    onSubmit: () => {
+      toast.success('Password Changed Successfully');
       navigate(routes.auth.login);
     },
   });

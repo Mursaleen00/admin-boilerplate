@@ -11,6 +11,9 @@ import OtpInput from '@/components/inputs/otp-input';
 // Constants
 import routes from '@/constants/routes';
 
+// Toast
+import toast from 'react-hot-toast';
+
 const VerificationEmailView = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -19,9 +22,11 @@ const VerificationEmailView = () => {
 
   const formik = useFormik({
     initialValues: { otp: '' },
-    onSubmit: async values => {
-      console.log({ values, email });
-      navigate(routes.auth.changePassword);
+    onSubmit: async ({ otp }) => {
+      if (otp === '000000' && email) {
+        toast.success('OTP is correct');
+        navigate(routes.auth.changePassword);
+      } else toast.error('OTP is incorrect');
     },
   });
 
@@ -34,7 +39,10 @@ const VerificationEmailView = () => {
       onSubmit={handleSubmit}
       className='flex w-full max-w-lg flex-col gap-y-6'
     >
-      <p className='text-text-dark text-4xl font-semibold'>Verify Email</p>
+      <div className='flex items-center justify-between'>
+        <p className='text-text-dark text-4xl font-semibold'>Verify Email</p>
+        <p>OTP: 000000</p>
+      </div>
 
       <OtpInput
         otp={values.otp}
