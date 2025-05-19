@@ -23,7 +23,7 @@ interface SelectProps {
   className?: string;
 }
 
-export function FilterSelect({
+export function CustomSelect({
   label,
   options,
   onChange,

@@ -31,7 +31,7 @@ const Input = ({
         {required && <span className='text-red-400'>*</span>}
       </p>
       <div
-        className={`border-text-dark shadow-box-shadow flex w-full items-center rounded-lg border bg-white pr-3 ${className} ${isError && `h-11 items-center justify-between !border-red-400`}`}
+        className={`border-text-primary shadow-box-shadow flex w-full items-center rounded-lg border bg-white pr-3 ${className} ${isError && `h-11 items-center justify-between !border-red-400`}`}
       >
         <input
           type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
@@ -58,6 +58,7 @@ const Input = ({
           </Fragment>
         )}
       </div>
+
       {isError && <p className='text-xs text-red-400'>{error}</p>}
     </label>
   );

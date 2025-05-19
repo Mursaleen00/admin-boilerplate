@@ -1,10 +1,17 @@
 import { StrictMode } from 'react';
-import BrowserRouterProvider from './browser-router.provider';
+import { Toaster } from 'react-hot-toast';
+import { BrowserRouter } from 'react-router';
+import ReactQueryProvider from './react-query.provider';
 
 const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <StrictMode>
-      <BrowserRouterProvider>{children}</BrowserRouterProvider>
+      <BrowserRouter>
+        <ReactQueryProvider>
+          <Toaster />
+          {children}
+        </ReactQueryProvider>
+      </BrowserRouter>
     </StrictMode>
   );
 };

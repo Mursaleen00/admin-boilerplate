@@ -2,7 +2,7 @@
 import { useFormik } from 'formik';
 
 // Routes
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 // Components
 import Button from '@/components/button/button';
@@ -17,19 +17,19 @@ import Cookies from 'js-cookie';
 // Constants
 import routes from '@/constants/routes';
 
-const LoginView = () => {
-  const navigate = useNavigate();
+// Toast
+import toast from 'react-hot-toast';
 
-  const { auth, page } = routes;
+const LoginView = () => {
+  const { auth } = routes;
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
     validationSchema: loginSchema,
-    onSubmit: value => {
-      console.log('🚀 ~ LoginView ~ value:', value);
+    onSubmit: () => {
       Cookies.set('token', 'abc123');
-      navigate(page.dashboard);
-      window.location.reload();
+      toast.success('Login Successfully');
+      setTimeout(() => window.location.reload(), 600);
     },
   });
 

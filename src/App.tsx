@@ -16,9 +16,9 @@ import ChangePasswordView from '@/views/auth/Change-Password';
 import ForgotPasswordView from '@/views/auth/Forgot-Password';
 import LoginView from '@/views/auth/Login';
 import VerificationEmailView from '@/views/auth/Verify-Email';
-import DashboardView from './views/pages/Dashboard';
-import RevenueView from './views/pages/Revenue';
-import UsersView from './views/pages/Users';
+import DashboardView from '@/views/pages/Dashboard';
+import RevenueView from '@/views/pages/Revenue';
+import UsersView from '@/views/pages/Users';
 
 function App() {
   const {

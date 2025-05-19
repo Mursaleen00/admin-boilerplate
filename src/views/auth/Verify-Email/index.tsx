@@ -32,7 +32,7 @@ const VerificationEmailView = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex w-full flex-col gap-y-6'
+      className='flex w-full max-w-lg flex-col gap-y-6'
     >
       <p className='text-text-dark text-4xl font-semibold'>Verify Email</p>
 

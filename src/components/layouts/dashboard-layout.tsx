@@ -34,7 +34,7 @@ const SidebarLayout = () => {
         />
 
         {/* Main content area */}
-        <div className='h-full max-h-[90dvh] w-full overflow-auto px-6 pt-6'>
+        <div className='h-full max-h-[90dvh] w-full overflow-x-hidden overflow-y-auto px-6 pt-6'>
           <Outlet />
         </div>
       </div>

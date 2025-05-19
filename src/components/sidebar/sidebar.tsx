@@ -14,10 +14,13 @@ import { Dispatch, SetStateAction } from 'react';
 import Cookies from 'js-cookie';
 
 // React Router
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 // Hooks
 import handleIsActive from '@/hooks/get-is-active';
+
+// Toast
+import toast from 'react-hot-toast';
 
 interface TabProps {
   isOpen: boolean;
@@ -25,17 +28,15 @@ interface TabProps {
 }
 
 const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
-  const navigate = useNavigate();
-
   const handleLogout = () => {
     Cookies.remove('token');
-    navigate(routes.auth.login);
-    window.location.reload();
+    toast.success('Logout Successfully');
+    setTimeout(() => window.location.reload(), 500);
   };
 
   return (
     <div
-      className={`${isOpen ? 'absolute top-0 left-0 z-[999] lg:relative' : 'hidden'} bg-primary h-full w-full max-w-64 min-w-xs flex-col px-6 py-10 lg:flex`}
+      className={`bg-primary fixed top-0 left-0 z-[999] h-full w-full max-w-64 min-w-xs px-6 py-10 transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col lg:flex`}
     >
       <Link to={routes.page.dashboard}>
         <img
@@ -65,12 +66,12 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
 
       <button
         onClick={handleLogout}
-        className='absolute bottom-6'
+        className='absolute bottom-6 w-full max-w-[270px] rounded-lg hover:bg-white/15'
       >
         <Tab
           name='Logout'
           icon='/sidebar-icons/logout.svg'
-          link={routes.auth.login}
+          link={'#'}
         />
       </button>
     </div>
