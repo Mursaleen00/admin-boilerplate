@@ -7,26 +7,28 @@ import { POST } from '@/services/axios-request-handler';
 
 // Types Imports
 import { CustomAxiosErrorType } from '@/types/custom-axios-error.type';
-import { LoginPayloadT } from '@/types/payloads/login-payload.type';
-import { LoginResT } from '@/types/res/login-res.type';
 
 // Toast Import
+import { ResendOTPPayloadT } from '@/types/payloads/resend-otp-payload.type';
+import { ResendOTPResT } from '@/types/res/resend-otp-res.type';
 import toast from 'react-hot-toast';
-
-export const useLoginMutation = (): UseMutationResult<
-  LoginResT,
+// Resend
+export const useResendOTPMutation = (): UseMutationResult<
+  ResendOTPResT,
   Error,
-  LoginPayloadT
+  ResendOTPPayloadT
 > => {
-  const LoginFn = async (payload: LoginPayloadT): Promise<LoginResT> => {
-    const response = await POST(URLS.LOGIN, payload);
-    return response as LoginResT;
+  const ResendOTPFn = async (
+    payload: ResendOTPPayloadT,
+  ): Promise<ResendOTPResT> => {
+    const response = await POST(URLS.RESEND_OTP, payload);
+    return response as ResendOTPResT;
   };
 
   return useMutation({
-    mutationFn: LoginFn,
+    mutationFn: ResendOTPFn,
     onSuccess: (message, variables, context) => {
-      toast.success('Login Successfully');
+      toast.success('Resend OTP Successfully');
       return {
         message,
         variables,
@@ -35,7 +37,7 @@ export const useLoginMutation = (): UseMutationResult<
     },
 
     onError: (error: CustomAxiosErrorType) => {
-      toast.error(error?.response?.data?.message ?? 'Login Failed');
+      toast.error(error?.response?.data?.message ?? 'OTP Resending Failed');
       return {
         error:
           error?.response?.data?.message ??

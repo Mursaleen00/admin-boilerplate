@@ -14,11 +14,19 @@ import routes from '@/constants/routes';
 // Toast
 import toast from 'react-hot-toast';
 
+// Mutation
+// import { useVerifyOTPMutation } from '@/services/query-hooks/auth/verify-otp.mutation';
+// import { useResendOTPMutation } from '@/services/query-hooks/auth/resend-otp.mutation';
+
 const VerificationEmailView = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const email = searchParams.get('email');
+  const email = searchParams.get('email') ?? '';
+
+  // const { mutateAsync: verifyOTP, isPending } = useVerifyOTPMutation();
+  // const { mutateAsync: resendOTP, isPending: resendPending } =
+  //   useResendOTPMutation();
 
   const formik = useFormik({
     initialValues: { otp: '' },
@@ -28,11 +36,16 @@ const VerificationEmailView = () => {
         navigate(routes.auth.changePassword);
       } else toast.error('OTP is incorrect');
     },
+    // onSubmit: async ({ otp }) => {
+    //   const res = await verifyOTP({ email, otp });
+    //   if (res) navigate(routes.auth.changePassword);
+    // },
   });
 
   const { values, setFieldValue, handleSubmit } = formik;
 
-  const handleResend = () => console.log('Resend');
+  // const handleResend = async () => await resendOTP({ email });
+  const handleResend = () => toast.success('OTP Resend Successfully');
 
   return (
     <form
@@ -49,19 +62,22 @@ const VerificationEmailView = () => {
         setFieldValue={otp => setFieldValue('otp', otp)}
       />
 
-      <p className='w-full text-center'>
+      <div className='w-full text-center'>
         Didn’t receive the code?{' '}
-        <span
+        <button
           className='text-primary cursor-pointer underline underline-offset-3'
+          // disabled={resendPending}
           onClick={handleResend}
+          type='button'
         >
           Resend Code
-        </span>
-      </p>
+        </button>
+      </div>
 
       <Button
         type='submit'
         text='Verify'
+        // isPending={isPending}
       />
     </form>
   );

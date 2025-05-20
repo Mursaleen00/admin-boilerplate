@@ -7,26 +7,28 @@ import { POST } from '@/services/axios-request-handler';
 
 // Types Imports
 import { CustomAxiosErrorType } from '@/types/custom-axios-error.type';
-import { LoginPayloadT } from '@/types/payloads/login-payload.type';
-import { LoginResT } from '@/types/res/login-res.type';
+import { VerifyOTPPayloadT } from '@/types/payloads/verify-otp-payload.type';
+import { VerifyOTPResT } from '@/types/res/verify-otp-res.type';
 
 // Toast Import
 import toast from 'react-hot-toast';
 
-export const useLoginMutation = (): UseMutationResult<
-  LoginResT,
+export const useVerifyOTPMutation = (): UseMutationResult<
+  VerifyOTPResT,
   Error,
-  LoginPayloadT
+  VerifyOTPPayloadT
 > => {
-  const LoginFn = async (payload: LoginPayloadT): Promise<LoginResT> => {
-    const response = await POST(URLS.LOGIN, payload);
-    return response as LoginResT;
+  const VerifyOTPFn = async (
+    payload: VerifyOTPPayloadT,
+  ): Promise<VerifyOTPResT> => {
+    const response = await POST(URLS.VERIFY_OTP, payload);
+    return response as VerifyOTPResT;
   };
 
   return useMutation({
-    mutationFn: LoginFn,
+    mutationFn: VerifyOTPFn,
     onSuccess: (message, variables, context) => {
-      toast.success('Login Successfully');
+      toast.success('Email Verified Successfully');
       return {
         message,
         variables,
@@ -35,7 +37,9 @@ export const useLoginMutation = (): UseMutationResult<
     },
 
     onError: (error: CustomAxiosErrorType) => {
-      toast.error(error?.response?.data?.message ?? 'Login Failed');
+      toast.error(
+        error?.response?.data?.message ?? 'Email Verification Failed',
+      );
       return {
         error:
           error?.response?.data?.message ??
