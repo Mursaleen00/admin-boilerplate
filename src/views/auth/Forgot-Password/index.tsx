@@ -17,16 +17,25 @@ import routes from '@/constants/routes';
 // Toast
 import toast from 'react-hot-toast';
 
+// Mutation
+// import { useForgotPasswordMutation } from '@/services/query-hooks/auth/forgot-password.mutation';
+
 const ForgotPasswordView = () => {
   const navigate = useNavigate();
+
+  // const { mutateAsync, isPending } = useForgotPasswordMutation();
 
   const formik = useFormik({
     initialValues: { email: '' },
     validationSchema: ForgotPasswordSchema,
-    onSubmit: value => {
+    onSubmit: ({ email }) => {
       toast.success('Email sent successfully');
-      navigate(`${routes.auth.verifyEmail}?email=${value.email}`);
+      navigate(`${routes.auth.verifyEmail}?email=${email}`);
     },
+    // onSubmit: async ({ email }) => {
+    //   const res = await mutateAsync({ email });
+    //   if (res) navigate(`${routes.auth.verifyEmail}?email=${email}`);
+    // },
   });
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -54,6 +63,7 @@ const ForgotPasswordView = () => {
       <Button
         type='submit'
         text='Verify'
+        // isPending={isPending}
       />
     </form>
   );
