@@ -22,6 +22,10 @@ import handleIsActive from '@/hooks/get-is-active';
 // Toast
 import toast from 'react-hot-toast';
 
+// Assets
+import logo from '@/assets/logo.svg';
+import logout from '@/assets/sidebar-icons/logout.svg';
+
 interface TabProps {
   isOpen: boolean;
   setIsOPen: Dispatch<SetStateAction<boolean>>;
@@ -41,7 +45,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
       <Link to={routes.page.dashboard}>
         <img
           alt='logo'
-          src={'/logo.svg'}
+          src={logo}
         />
       </Link>
 
@@ -70,7 +74,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
       >
         <Tab
           name='Logout'
-          icon='/sidebar-icons/logout.svg'
+          icon={logout}
           link={'#'}
         />
       </button>

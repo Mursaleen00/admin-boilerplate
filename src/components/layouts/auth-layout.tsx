@@ -1,6 +1,15 @@
+// Constants
 import routes from '@/constants/routes';
+
+// React Router
 import { Outlet, useLocation } from 'react-router';
+
+// Components
 import BackButton from '../button/back-button';
+
+// Assets
+import coloredLogo from '@/assets/logo-colored.svg';
+import logo from '@/assets/logo.svg';
 
 const AuthLayout = () => {
   const { pathname } = useLocation();
@@ -12,7 +21,7 @@ const AuthLayout = () => {
           alt='logo'
           width={300}
           height={300}
-          src='/logo.svg'
+          src={logo}
         />
       </div>
       <div className='flex w-full flex-col items-center justify-center gap-y-10 p-6 md:!w-[50%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%]'>
@@ -20,7 +29,7 @@ const AuthLayout = () => {
           alt='logo'
           width={300}
           height={300}
-          src='/logo-colored.svg'
+          src={coloredLogo}
           className='!fill-primary block md:hidden'
         />
         {pathname !== routes.auth.login && (
