@@ -37,8 +37,12 @@ const VerificationEmailView = () => {
       } else toast.error('OTP is incorrect');
     },
     // onSubmit: async ({ otp }) => {
-    //   const res = await verifyOTP({ email, otp });
-    //   if (res) navigate(routes.auth.changePassword);
+    //   try {
+    //     await verifyOTP({ email, otp });
+    //     navigate(routes.auth.changePassword);
+    //   } catch (error) {
+    //     console.log(`Verify OTP Mutation Error:`, error);
+    //   }
     // },
   });
 

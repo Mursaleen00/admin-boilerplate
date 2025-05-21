@@ -33,8 +33,11 @@ const ForgotPasswordView = () => {
       navigate(`${routes.auth.verifyEmail}?email=${email}`);
     },
     // onSubmit: async ({ email }) => {
-    //   const res = await mutateAsync({ email });
-    //   if (res) navigate(`${routes.auth.verifyEmail}?email=${email}`);
+    //   try {
+    //    await mutateAsync({ email });
+    //    navigate(`${routes.auth.verifyEmail}?email=${email}`);
+    //   } catch (error) {
+    //     console.log(`Forgot Password Mutation Error:`, error);
     // },
   });
 

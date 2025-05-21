@@ -32,10 +32,12 @@ const LoginView = () => {
     initialValues: { email: '', password: '' },
     validationSchema: loginSchema,
     // onSubmit: async ({ email, password }) => {
-    //   const { token } = await mutateAsync({ email, password });
-    //   if (token) {
+    //   try {
+    //     const { token } = await mutateAsync({ email, password });
     //     Cookies.set('token', token);
-    //     window.location.reload()
+    //     window.location.reload();
+    //   } catch (error) {
+    //     console.log(`Login Mutation Error:`, error);
     //   }
     // },
     onSubmit: () => {
