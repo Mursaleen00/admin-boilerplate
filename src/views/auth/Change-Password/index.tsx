@@ -17,8 +17,13 @@ import routes from '@/constants/routes';
 // Toast
 import toast from 'react-hot-toast';
 
+// Mutation
+// import { useChangePasswordMutation } from '@/services/query-hooks/auth/change-password.mutation';
+
 const ChangePasswordView = () => {
   const navigate = useNavigate();
+
+  // const { mutateAsync, isPending } = useChangePasswordMutation();
 
   const formik = useFormik({
     initialValues: { confirmPassword: '', password: '' },
@@ -27,6 +32,15 @@ const ChangePasswordView = () => {
       toast.success('Password Changed Successfully');
       navigate(routes.auth.login);
     },
+    // onSubmit: async values => {
+    //   const { password } = values;
+    //   try {
+    //     await mutateAsync({ password });
+    //     navigate(routes.auth.login);
+    //   } catch (error) {
+    //     console.log(`Change Password Mutation Error:`, error);
+    //   }
+    // },
   });
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -66,8 +80,9 @@ const ChangePasswordView = () => {
       />
 
       <Button
-        type='submit'
         text='Save'
+        type='submit'
+        // isPending={isPending}
       />
     </form>
   );

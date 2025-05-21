@@ -15,19 +15,19 @@ interface option {
 }
 
 interface SelectProps {
+  value: string;
   label: string;
+  className?: string;
+  isPending?: boolean;
   options: Array<option>;
   onChange: (value: string) => void;
-  value: string;
-  isPending?: boolean;
-  className?: string;
 }
 
 export function CustomSelect({
   label,
+  value,
   options,
   onChange,
-  value,
   isPending,
   className,
 }: SelectProps) {
