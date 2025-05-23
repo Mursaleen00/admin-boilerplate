@@ -28,6 +28,7 @@ const Tab = ({ icon, name, link, coloredIcon, index, isActive }: IProps) => {
         width={24}
         height={24}
         className='transition-transform duration-300'
+        loading='lazy'
       />
 
       <p

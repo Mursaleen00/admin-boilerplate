@@ -46,6 +46,8 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
         <img
           alt='logo'
           src={logo}
+          width={170}
+          height={170}
         />
       </Link>
 

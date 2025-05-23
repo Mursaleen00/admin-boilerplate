@@ -37,7 +37,7 @@ const LoginView = () => {
     //     Cookies.set('token', token);
     //     window.location.reload();
     //   } catch (error) {
-    //     console.log(`Login Mutation Error:`, error);
+    //     console.error(`Login Mutation Error:`, error);
     //   }
     // },
     onSubmit: () => {

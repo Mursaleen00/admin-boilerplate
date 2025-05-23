@@ -1,3 +1,6 @@
+// React
+import { lazy } from 'react';
+
 // Routers
 import { Route, Routes } from 'react-router';
 
@@ -12,13 +15,13 @@ import { NotFoundRedirect, ProtectedRoute, PublicRoute } from '@/middleware';
 import routes from '@/constants/routes';
 
 // Views
-import ChangePasswordView from '@/views/auth/Change-Password';
-import ForgotPasswordView from '@/views/auth/Forgot-Password';
-import LoginView from '@/views/auth/Login';
-import VerificationEmailView from '@/views/auth/Verify-Email';
-import DashboardView from '@/views/pages/Dashboard';
-import RevenueView from '@/views/pages/Revenue';
-import UsersView from '@/views/pages/Users';
+const LoginView = lazy(() => import('@/views/auth/Login'));
+const UsersView = lazy(() => import('@/views/pages/Users'));
+const RevenueView = lazy(() => import('@/views/pages/Revenue'));
+const DashboardView = lazy(() => import('@/views/pages/Dashboard'));
+const ChangePasswordView = lazy(() => import('@/views/auth/Change-Password'));
+const VerificationEmailView = lazy(() => import('@/views/auth/Verify-Email'));
+const ForgotPasswordView = lazy(() => import('@/views/auth/Forgot-Password'));
 
 function App() {
   const {

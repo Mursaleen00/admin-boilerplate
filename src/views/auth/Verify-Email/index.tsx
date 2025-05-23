@@ -41,7 +41,7 @@ const VerificationEmailView = () => {
     //     await verifyOTP({ email, otp });
     //     navigate(routes.auth.changePassword);
     //   } catch (error) {
-    //     console.log(`Verify OTP Mutation Error:`, error);
+    //     console.error(`Verify OTP Mutation Error:`, error);
     //   }
     // },
   });

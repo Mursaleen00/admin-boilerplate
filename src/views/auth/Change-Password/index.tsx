@@ -38,7 +38,7 @@ const ChangePasswordView = () => {
     //     await mutateAsync({ password });
     //     navigate(routes.auth.login);
     //   } catch (error) {
-    //     console.log(`Change Password Mutation Error:`, error);
+    //     console.error(`Change Password Mutation Error:`, error);
     //   }
     // },
   });

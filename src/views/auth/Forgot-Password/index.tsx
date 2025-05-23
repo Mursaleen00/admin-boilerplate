@@ -37,7 +37,7 @@ const ForgotPasswordView = () => {
     //    await mutateAsync({ email });
     //    navigate(`${routes.auth.verifyEmail}?email=${email}`);
     //   } catch (error) {
-    //     console.log(`Forgot Password Mutation Error:`, error);
+    //     console.error(`Forgot Password Mutation Error:`, error);
     // },
   });
 
