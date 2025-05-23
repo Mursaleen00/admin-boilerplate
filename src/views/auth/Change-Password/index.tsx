@@ -58,21 +58,23 @@ const ChangePasswordView = () => {
       <Input
         name='password'
         type='password'
-        label='New Password'
         onBlur={handleBlur}
+        label='New Password'
         value={values.password}
         error={errors.password}
-        touched={touched.password}
         onChange={handleChange}
+        touched={touched.password}
+        containerClassName='!w-full'
         placeholder='Enter your New Password'
       />
 
       <Input
-        name='confirmPassword'
         type='password'
-        label='Confirm Password'
         onBlur={handleBlur}
+        name='confirmPassword'
         onChange={handleChange}
+        label='Confirm Password'
+        containerClassName='!w-full'
         value={values.confirmPassword}
         error={errors.confirmPassword}
         touched={touched.confirmPassword}

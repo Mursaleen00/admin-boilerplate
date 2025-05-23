@@ -19,6 +19,7 @@ const LoginView = lazy(() => import('@/views/auth/Login'));
 const UsersView = lazy(() => import('@/views/pages/Users'));
 const RevenueView = lazy(() => import('@/views/pages/Revenue'));
 const DashboardView = lazy(() => import('@/views/pages/Dashboard'));
+const ComponentsView = lazy(() => import('@/views/pages/Components'));
 const ChangePasswordView = lazy(() => import('@/views/auth/Change-Password'));
 const VerificationEmailView = lazy(() => import('@/views/auth/Verify-Email'));
 const ForgotPasswordView = lazy(() => import('@/views/auth/Forgot-Password'));
@@ -26,7 +27,7 @@ const ForgotPasswordView = lazy(() => import('@/views/auth/Forgot-Password'));
 function App() {
   const {
     auth: { changePassword, forgotPassword, login, verifyEmail },
-    page: { dashboard, users, revenue },
+    page: { dashboard, users, revenue, components },
   } = routes;
 
   return (
@@ -67,6 +68,10 @@ function App() {
           <Route
             path={revenue}
             element={<RevenueView />}
+          />
+          <Route
+            path={components}
+            element={<ComponentsView />}
           />
         </Route>
       </Route>

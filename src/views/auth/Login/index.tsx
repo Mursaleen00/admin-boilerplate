@@ -67,11 +67,14 @@ const LoginView = () => {
         touched={touched.email}
         onChange={handleChange}
         placeholder='Enter your email'
+        containerClassName='!w-full'
       />
 
       <Input
+        containerClassName='!w-full'
         name='password'
         type='password'
+        className='!w-full'
         label='Password'
         onBlur={handleBlur}
         onChange={handleChange}

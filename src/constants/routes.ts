@@ -9,6 +9,7 @@ const routes = {
     dashboard: '/dashboard',
     users: '/users',
     revenue: '/revenue',
+    components: '/components',
   },
 };
 

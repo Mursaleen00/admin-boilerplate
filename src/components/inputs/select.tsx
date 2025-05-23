@@ -4,6 +4,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -23,7 +24,7 @@ interface SelectProps {
   onChange: (value: string) => void;
 }
 
-export function CustomSelect({
+export function SingleSelect({
   label,
   value,
   options,
@@ -36,10 +37,12 @@ export function CustomSelect({
       value={value}
       onValueChange={value => onChange(value)}
     >
-      <SelectTrigger className={`w-full ${className}`}>
-        <SelectValue placeholder={`Select ${label}`} />
+      <SelectTrigger
+        className={`border-divider w-full min-w-[250px] bg-white !ring-0 !outline-none sm:w-fit ${className}`}
+      >
+        <SelectValue placeholder={label} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className='border-divider bg-white'>
         {isPending ? (
           <SelectGroup>
             <SelectLabel>
@@ -48,7 +51,11 @@ export function CustomSelect({
           </SelectGroup>
         ) : (
           <SelectGroup>
-            <SelectLabel>{label}s</SelectLabel>
+            <SelectLabel className='text-sm font-medium capitalize'>
+              {label}s
+            </SelectLabel>
+            <SelectSeparator className='border-divider border-t' />
+
             {options.map(({ label, value }) => (
               <SelectItem
                 key={value}

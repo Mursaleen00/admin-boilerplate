@@ -21,7 +21,7 @@ const Button = ({
     <button
       {...rest}
       disabled={isPending || disabled}
-      className={`${!isOutline ? 'bg-primary' : 'border-primary !text-primary border bg-transparent'} flex h-11 w-full cursor-pointer items-center justify-center gap-x-3 rounded-lg px-6 py-2 text-center text-sm font-medium text-white ${className}`}
+      className={`${!isOutline ? 'bg-primary' : 'border-primary !text-primary border bg-transparent'} flex h-9 w-full cursor-pointer items-center justify-center gap-x-3 rounded-md px-6 py-2 text-center text-sm font-medium text-white ${className}`}
     >
       {isPending ? (
         <TbLoaderQuarter

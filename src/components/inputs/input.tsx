@@ -3,9 +3,10 @@ import { Fragment, InputHTMLAttributes, useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   error?: string;
   touched?: boolean;
+  containerClassName?: string;
 }
 
 const Input = ({
@@ -15,6 +16,7 @@ const Input = ({
   touched,
   required,
   className,
+  containerClassName,
   ...res
 }: InputProps) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,14 +26,16 @@ const Input = ({
   return (
     <label
       htmlFor='input'
-      className='w-full space-y-1'
+      className={`w-full space-y-1 sm:w-fit ${containerClassName}`}
     >
-      <p className='text-text-light text-sm font-medium capitalize'>
-        {label}
-        {required && <span className='text-red-400'>*</span>}
-      </p>
+      {label && (
+        <p className='text-text-light text-sm font-medium capitalize'>
+          {label}
+          {required && <span className='text-red-400'>*</span>}
+        </p>
+      )}
       <div
-        className={`border-text-primary shadow-box-shadow flex h-11 w-full items-center rounded-lg border bg-white pr-3 ${className} ${isError && `items-center justify-between !border-red-400`}`}
+        className={`shadow-box-shadow border-divider flex h-9 w-full items-center rounded-md border bg-white pr-3 ${className} ${isError && `items-center justify-between !border-red-400`}`}
       >
         <input
           type={type === 'password' ? (isVisible ? 'text' : 'password') : type}

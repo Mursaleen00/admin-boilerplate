@@ -19,13 +19,15 @@ const OtpInput: React.FC<OtpInputProps> = ({ otp, setFieldValue }) => {
       renderSeparator={<span></span>}
       renderInput={props => <input {...props} />}
       inputStyle={{
-        width: '50px',
-        height: '55px',
+        width: '36px',
+        height: '36px',
         margin: '0 0.2rem',
-        fontSize: '1.5rem',
-        borderRadius: '10px',
-        backgroundColor: '#F2F4F7',
+        fontSize: '20px',
+        borderRadius: '6px',
+        backgroundColor: '#fff',
         textAlign: 'center',
+        border: '1px solid #dcdfe4',
+        outline: 'none',
       }}
       shouldAutoFocus
       inputType='tel'

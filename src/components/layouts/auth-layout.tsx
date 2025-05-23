@@ -25,7 +25,7 @@ const AuthLayout = () => {
           loading='lazy'
         />
       </div>
-      <div className='flex w-full flex-col items-center justify-center gap-y-10 p-6 md:!w-[50%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%]'>
+      <div className='bg-bg flex w-full flex-col items-center justify-center gap-y-10 p-6 md:!w-[50%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%]'>
         <img
           alt='logo'
           width={300}

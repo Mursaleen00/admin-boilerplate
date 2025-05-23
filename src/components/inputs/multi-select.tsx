@@ -68,34 +68,34 @@ export function MultiSelect({
   }, []);
 
   return (
-    <div className='flex flex-col gap-y-2'>
+    <div className='flex w-full flex-col gap-y-2 sm:w-fit'>
       <DropdownMenu
         open={isOpen}
         onOpenChange={setIsOpen}
       >
         <DropdownMenuTrigger
           ref={triggerRef}
-          className={`border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring flex h-9 w-fit cursor-pointer items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm focus:ring-1 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 ${className}`}
+          className={`border-divider h-9 w-full cursor-pointer rounded-md border bg-white px-3 py-2 text-sm ring-0 outline-0 sm:w-fit sm:min-w-[250px] ${className}`}
         >
-          <div className='flex w-full items-center justify-between gap-2'>
-            <p>{`Select ${label}`}</p>
+          <div className='flex w-full items-center justify-between gap-2 capitalize'>
+            {label}
             <IoIosArrowDown className='h-4 w-4 opacity-50' />
           </div>
         </DropdownMenuTrigger>
 
         <DropdownMenuContent
           ref={dropdownRef}
-          className='!w-fit min-w-[335px] bg-white'
+          className='border-divider !z-[999] !w-fit min-w-[250px] bg-white'
         >
-          <DropdownMenuLabel>{label}</DropdownMenuLabel>
-          <DropdownMenuSeparator className='border' />
+          <DropdownMenuLabel className='capitalize'>{label}</DropdownMenuLabel>
+          <DropdownMenuSeparator className='border-divider border-t' />
 
           {options.map(({ label, value }) => (
             <DropdownMenuCheckboxItem
               key={value}
               checked={values.includes(value)}
               onCheckedChange={checked => handleChange(value, checked)}
-              onSelect={e => e.preventDefault()} // Prevent closing on selection
+              onSelect={e => e.preventDefault()}
             >
               {label}
             </DropdownMenuCheckboxItem>
@@ -108,7 +108,7 @@ export function MultiSelect({
           {values.map((value, i) => (
             <Badge
               key={i}
-              className='cursor-pointer text-white'
+              className='cursor-pointer text-white capitalize'
               onClick={() => onChange(values.filter(v => v !== value))}
             >
               {options.find(option => option.value === value)?.label}

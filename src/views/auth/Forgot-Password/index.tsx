@@ -61,6 +61,7 @@ const ForgotPasswordView = () => {
         touched={touched.email}
         onChange={handleChange}
         placeholder='Enter your email'
+        containerClassName='!w-full'
       />
 
       <Button

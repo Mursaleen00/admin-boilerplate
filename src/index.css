@@ -8,8 +8,8 @@
   --color-primary: #6154a4;
   --color-primary-light: #6154a4a1;
   --color-primary-lightest: #6154a43f;
-
-  /* Text colors */
+  --color-bg: #f8f8f8;
+  --color-divider: #dcdfe4;
   --color-text-primary: #212636;
   --color-text-secondary: #667085;
 }

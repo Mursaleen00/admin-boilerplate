@@ -40,7 +40,7 @@ const Sidebar = ({ isOpen, setIsOPen }: TabProps) => {
 
   return (
     <div
-      className={`bg-primary fixed top-0 left-0 z-[999] h-full w-full max-w-64 min-w-xs px-6 py-10 transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col lg:flex`}
+      className={`bg-primary fixed top-0 left-0 z-[100] h-full w-full max-w-64 min-w-xs px-6 py-10 transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col lg:flex`}
     >
       <Link to={routes.page.dashboard}>
         <img
