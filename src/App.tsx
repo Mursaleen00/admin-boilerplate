@@ -27,7 +27,7 @@ const ForgotPasswordView = lazy(() => import('@/views/auth/Forgot-Password'));
 function App() {
   const {
     auth: { changePassword, forgotPassword, login, verifyEmail },
-    page: { dashboard, users, revenue, components },
+    page: { users, revenue, dashboard, components, usersDetails, usersEdit },
   } = routes;
 
   return (
@@ -61,10 +61,7 @@ function App() {
             path={dashboard}
             element={<DashboardView />}
           />
-          <Route
-            path={users}
-            element={<UsersView />}
-          />
+
           <Route
             path={revenue}
             element={<RevenueView />}
@@ -72,6 +69,20 @@ function App() {
           <Route
             path={components}
             element={<ComponentsView />}
+          />
+
+          {/* ====================== Users ====================== */}
+          <Route
+            path={users}
+            element={<UsersView />}
+          />
+          <Route
+            path={usersEdit}
+            element={<div>Users Edit</div>}
+          />
+          <Route
+            path={usersDetails}
+            element={<div>Users Details</div>}
           />
         </Route>
       </Route>

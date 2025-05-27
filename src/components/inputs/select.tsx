@@ -17,7 +17,7 @@ interface option {
 
 interface SelectProps {
   value: string;
-  label: string;
+  label?: string;
   className?: string;
   isPending?: boolean;
   options: Array<option>;
@@ -52,7 +52,7 @@ export function SingleSelect({
         ) : (
           <SelectGroup>
             <SelectLabel className='text-sm font-medium capitalize'>
-              {label}s
+              {label}
             </SelectLabel>
             <SelectSeparator className='border-divider border-t' />
 
